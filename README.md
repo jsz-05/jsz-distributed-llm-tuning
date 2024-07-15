@@ -4,7 +4,7 @@ This repository contains the code and documentation I have created for training 
 ## Tuning the Model
 
 ### Data Collection
-I started by using a web scraper to create a rough dataset from a website. This dataset includes questions and answers that were used to train the model.
+I started by using a web scraper to create a rough dataset from a website. This dataset includes questions and answers, as well as text data from the website that were used to train the model. NOTE: work is being done to greatly improve the performance of the chatbot, including testing various base LLMs, dataset cleaning/optimization, and prompt engineering.
 
 ### Model Used
 The model used for this project is Gemini 1.0 Pro, one of Google's older flagship models. The training and tuning were done using Google's API, and Google Cloud Console was used for compute/storage. 
@@ -18,7 +18,7 @@ The results of the tuning process were very promising, showing that the model co
 
 ## Costs and Deployment
 
-All resources, including the model, compute resources, and infrastructure, were handled by Google Cloud Console. For deployment, I wrote a Flask application for the backend and designed a simple frontend interface for the chatbot. To avoid paying for Google's cloud hosting, I hosted the chatbot as a subpage on my portfolio website.
+All resources, including the model, compute resources, and infrastructure, were handled by Google Cloud Console. For deployment, I wrote a Flask application for the backend and designed a simple frontend interface for the chatbot. To avoid paying for Google's cloud hosting, I hosted the chatbot as a subpage on my portfolio website via Pythonanywhere.
 
 You can access the chatbot here: [https://jsz.ext.io/chatbot](https://jsz.ext.io/chatbot)
 
