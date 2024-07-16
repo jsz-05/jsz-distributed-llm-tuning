@@ -18,7 +18,7 @@ The results of the tuning process were very promising, showing that the model co
 
 ## Costs and Deployment
 
-All resources, including the model, compute resources, and infrastructure, were handled by Google Cloud Console. For deployment, I wrote a Flask application for the backend and designed a simple frontend interface for the chatbot. To avoid paying for Google's cloud hosting, I hosted the chatbot as a subpage on my portfolio website via Pythonanywhere.
+All resources, including the model, compute resources, and infrastructure, were handled by Google Cloud Console. For deployment, I wrote a Flask application for the backend and designed a simple frontend interface for the chatbot. To avoid paying for Google's cloud hosting, I integrated the chatbot as a subpage on my portfolio , and hosted the app via Pythonanywhere.
 
 You can access the chatbot here: [https://jsz.ext.io/chatbot](https://jsz.ext.io/chatbot)
 
