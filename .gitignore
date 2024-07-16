@@ -3,8 +3,8 @@ __pycache__
 token.json
 gen-lang-client.json
 client_secret.json
-flask_webserver.py
-reference.txt
+# flask_webserver.py
+# reference.txt
 gemini_tuning.ipynb
-relevancy_processor.py
-chatbot.html
+# relevancy_processor.py
+# chatbot.html
