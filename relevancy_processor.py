@@ -9,7 +9,7 @@ def preprocess_text(text):
     # Additional preprocessing
     return text
 
-def get_relevant_passages(question, reference_text, num_passages=5, passage_length=750, overlap=50):
+def get_relevant_passages(question, reference_text, num_passages=5, passage_length=750, overlap=100):
     # Preprocess the question and reference text
     processed_question = preprocess_text(question)
     processed_reference = preprocess_text(reference_text)
@@ -31,16 +31,5 @@ def get_relevant_passages(question, reference_text, num_passages=5, passage_leng
     top_passages = [passages[i] for i in top_passage_indices]
     top_scores = [cosine_similarities[i] for i in top_passage_indices]
     
-    # Filter out similar passages
-    unique_passages = []
-    unique_scores = []
-    for passage, score in zip(top_passages, top_scores):
-        if not any(passage in unique_passage for unique_passage in unique_passages):
-            unique_passages.append(passage)
-            unique_scores.append(score)
-        if len(unique_passages) >= num_passages:
-            break
-
-    return unique_passages, unique_scores
-
+    return top_passages, top_scores
 

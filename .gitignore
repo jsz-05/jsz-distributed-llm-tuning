@@ -11,3 +11,5 @@ reference.txt
 gemini_tuning.ipynb
 
 chatbot.html
+gemini_chatbot.py
+gpt_chatbot.py
