@@ -42,21 +42,43 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .message {
+            position: relative;
             margin: 10px 0;
             padding: 10px;
             border-radius: 8px;
+            max-width: 75%;
+            word-wrap: break-word;
+        }
+        .message::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
         }
         .user {
             text-align: right;
             background-color: #2C3E50;
             color: #90CAF9;
-            margin-left: 20%;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+        .user::after {
+            top: 10px;
+            right: -20px;
+            border-left-color: #2C3E50;
         }
         .bot {
             text-align: left;
             background-color: #34495E;
             color: #A5D6A7;
-            margin-right: 20%;
+            margin-right: auto;
+            margin-left: 10px;
+        }
+        .bot::after {
+            top: 10px;
+            left: -20px;
+            border-right-color: #34495E;
         }
         .input-container {
             display: flex;
@@ -82,17 +104,18 @@
         button:hover {
             background-color: #2980B9;
         }
-        footer {
+        .bottom {
             text-align: center;
             padding: 10px;
             background-color: #F0F0F0; /* Default to light mode (dark colors) */
             color: #888888;
             font-size: 0.8em;
-            width: 100%;
-            max-width: 782px;
-            margin: 0 auto;
+            max-width: 780px;  /* Maximum width */
+            width: 100%;       /* Adjust to 100% of the container's width */
+            margin: 0 auto;   /* Center horizontally */
             transition: background-color 0.3s, color 0.3s;
             border-radius: 6px;
+            border: 1px solid #333;
         }
         .toggle-button {
             background-color: #3498DB;
@@ -114,7 +137,6 @@
             border-radius: 0 4px 4px 0; 
             margin-left: 0px; 
         }
-
     </style>
 </head>
 <body>
@@ -126,19 +148,17 @@
             <button class="toggle-button" onclick="toggleMode()">
                 <i class="fas fa-circle-half-stroke"></i> <!-- Font Awesome icon -->
             </button>
-            
             <button class="send-button" onclick="sendMessage()">Send</button>
-            
+        </div>
+        <div class="bottom">
+            Work in progress by Jeffrey Zhou. LLM trained on content from 
+            <a href="https://kmchandy.github.io/index.html" target="_blank" rel="noopener noreferrer">
+                https://kmchandy.github.io/index.html 
+            </a> 
+            using Gemini 1.5 Flash API. 
         </div>
     </div>
-    <footer>
-        Work in progress by Jeffrey Zhou. LLM trained on content from 
-        <a href="https://kmchandy.github.io/index.html" target="_blank" rel="noopener noreferrer">
-            https://kmchandy.github.io/index.html
-        </a> 
-        using Gemini 1.0 Pro API. 
-    </footer>
-                                
+
     <script>
         function sendMessage() {
             const userInput = document.getElementById('userInput').value;
@@ -181,7 +201,7 @@
             const body = document.body;
             const chatbox = document.getElementById('chatbox');
             const userInput = document.getElementById('userInput');
-            const footer = document.querySelector('footer');
+            const bottom = document.querySelector('.bottom');
 
             if (theme === 'dark') {
                 body.style.backgroundColor = '#121212';
@@ -190,8 +210,8 @@
                 chatbox.style.color = '#E0E0E0';
                 userInput.style.backgroundColor = '#1E1E1E';
                 userInput.style.color = '#E0E0E0';
-                footer.style.backgroundColor = '#1E1E1E';
-                footer.style.color = '#888';
+                bottom.style.backgroundColor = '#1E1E1E';
+                bottom.style.color = '#888';
 
             } else {
                 body.style.backgroundColor = '#FFFFFF';
@@ -200,8 +220,8 @@
                 chatbox.style.color = '#000000';
                 userInput.style.backgroundColor = '#F0F0F0';
                 userInput.style.color = '#000000';
-                footer.style.backgroundColor = '#F0F0F0';
-                footer.style.color = '#888888';
+                bottom.style.backgroundColor = '#F0F0F0';
+                bottom.style.color = '#888888';
             }
         }
 
@@ -214,6 +234,18 @@
         // Apply the saved theme preference on initial load
         const savedTheme = localStorage.getItem('theme') || 'dark';
         applyTheme(savedTheme);
+
+        // Send greeting message on initial load with 1-second delay
+        window.onload = function() {
+            setTimeout(function() {
+                const chatbox = document.getElementById('chatbox');
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                botMessage.textContent = "Hello! I am a Chatbot designed to answer your questions about CS142, Distributed Computing at Caltech. Feel free to ask me a question!";
+                chatbox.appendChild(botMessage);
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }, 1500);
+        };
     </script>
 </body>
 </html>

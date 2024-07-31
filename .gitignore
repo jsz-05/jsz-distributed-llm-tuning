@@ -1,10 +1,13 @@
 core.py
+
 __pycache__
+
 token.json
 gen-lang-client.json
 client_secret.json
-# flask_webserver.py
-# reference.txt
+.env
+
+reference.txt
 gemini_tuning.ipynb
-# relevancy_processor.py
-# chatbot.html
+
+chatbot.html
