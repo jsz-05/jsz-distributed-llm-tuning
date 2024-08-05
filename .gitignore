@@ -7,8 +7,9 @@ gen-lang-client.json
 client_secret.json
 .env
 
-reference.txt
+new_reference.txt
 gemini_tuning.ipynb
+rag_processor.py
 
 chatbot.html
 gemini_chatbot.py
