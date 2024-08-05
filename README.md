@@ -4,7 +4,7 @@ This repository contains the code and documentation I have created for training 
 ## Tuning the Model
 
 ### Data Collection
-I started by using a web scraper to create a rough dataset from a website. This dataset includes questions and answers, as well as text data from the website that were used to train the model. NOTE: work is being done to greatly improve the performance of the chatbot, including testing various base LLMs, dataset cleaning/optimization, and prompt engineering.
+A simple web scraper was implemented to create a rough dataset from the course website. This dataset includes questions and answers, as well as text data from the website that were used to train the model. NOTE: work is being done to greatly improve the performance of the chatbot, including testing various base LLMs, dataset cleaning/optimization, and prompt engineering.
 
 The data is currently stored in 4 formats:
 - `distributed_complex.csv`: This contains complex questions generated from the course content which prompt about specific concepts and details.
